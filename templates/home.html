@@ -1,0 +1,1150 @@
+<!-- """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Hub - Your Financial Future Starts Here</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <style>
+        /* Modern Full-Screen Design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section - Full Screen */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #2a4d69 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%2300c6ff" stop-opacity="0.1"/><stop offset="100%" stop-color="%2300c6ff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 198, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 198, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(1.25rem, 2vw, 2rem);
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            align-items: stretch;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: clamp(2rem, 2vw, 3rem) 2rem;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+        }
+
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: block;
+            line-height: 1;
+            filter: drop-shadow(0 4px 8px rgba(0, 198, 255, 0.2));
+        }
+
+        .service-card h3 { font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.9rem; line-height: 1.25; }
+
+        .service-card p { color: #475569; line-height: 1.7; margin-bottom: 2rem; font-size: 1.02rem; flex-grow: 1; }
+
+        /* Prevent icon/title from shrinking and keep consistent spacing */
+        .service-card .service-icon,
+        .service-card h3 {
+            flex-shrink: 0;
+        }
+
+        /* Ensure CTA stays at bottom for equal height appearance */
+        .service-card .service-link {
+            align-self: center;
+            margin-top: auto;
+        }
+
+        .service-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 198, 255, 0.3);
+            margin-top: auto;
+        }
+
+        .service-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 198, 255, 0.4);
+            background: linear-gradient(135deg, #0072ff, #005bb3);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: #00c6ff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-item p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: #0d1b2a;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00c6ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #0072ff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1280px) {
+            .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+            align-items: center;
+            }
+            
+            .services-section {
+                padding: 4rem 0;
+            }
+            
+            .section-header {
+                margin-bottom: 3rem;
+                padding: 0 1rem;
+            }
+            
+            .services-grid { grid-template-columns: 1fr; padding: 0 1rem; gap: 2rem; }
+            
+            .service-card { padding: 2rem 1.25rem; min-height: 340px; }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .service-card {
+                padding: 2rem 1rem;
+            }
+            
+            .service-icon {
+                font-size: 3rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Finance Hub</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/bank-analysis">Bank Analysis</a></li>
+                <li><a href="/smart-budget">Smart Budget</a></li>
+                <li><a href="/chatbot">Chatbot</a></li>
+            </ul>
+        </div>
+    </nav>
+
+ 
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Financial Future Starts Here</h1>
+            <p>
+                Transform your financial life with AI-powered insights, real-time market analysis, and personalized budgeting strategies. 
+                Take control of your money and build wealth with confidence.
+            </p>
+            <div class="hero-buttons">
+                <a href="/chatbot" class="btn-primary">💬 Start Your Financial Journey</a>
+                <a href="/smart-budget" class="btn-secondary">🤖 AI Budget Planner</a>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="services-section">
+        <div class="section-header">
+            <h2 class="section-title">🚀 Advanced Financial Services</h2>
+            <p class="section-subtitle">Everything you need to master your finances in one powerful platform</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🏦</span>
+                <h3>Bank Health Analysis</h3>
+                <p>Comprehensive analysis of Indian banking sector performance with early warning indicators and individual bank health scores.</p>
+                <a href="/bank-analysis" class="service-link">Explore Analysis</a>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">🤖</span>
+                <h3>AI Smart Budget Planner</h3>
+                <p>Get personalized budget recommendations, financial health scores, and AI-powered savings strategies tailored to your goals.</p>
+                <a href="/smart-budget" class="service-link">Create Budget</a>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">📊</span>
+                <h3>Real-time Stock Data</h3>
+                <p>Live stock prices for US and Indian markets with comprehensive market analysis and trend predictions.</p>
+                <a href="/stocknews" class="service-link">View Markets</a>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">💬</span>
+                <h3>AI Financial Advisor</h3>
+                <p>Get instant financial advice, investment guidance, and personalized recommendations from our advanced AI chatbot.</p>
+                <a href="/chatbot" class="service-link">Chat Now</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features-section">
+        <div class="section-header">
+            <h2 class="section-title">🎯 Why Choose Finance Hub?</h2>
+            <p class="section-subtitle">Cutting-edge features designed to revolutionize your financial management</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🏦</div>
+                <h3>Banking Sector Analysis</h3>
+                <p>Monitor Indian banking sector health, analyze NPL ratios, capital adequacy, and get early warning indicators for potential banking stress.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Budgeting</h3>
+                <p>Intelligent budget structuring based on your income, expenses, and financial goals with personalized recommendations.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">📈</div>
+                <h3>Financial Health Scoring</h3>
+                <p>Get your personal financial health score and actionable recommendations to improve your financial well-being.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🏆</div>
+                <h3>Savings Challenges</h3>
+                <p>Participate in gamified savings challenges like 52-week challenge, no-spend month, and round-up savings.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your financial data is protected with bank-level security and privacy measures. Your information stays confidential.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Always Accessible</h3>
+                <p>Access your financial insights anytime, anywhere. Our platform works seamlessly across all devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                            <div class="stat-label">Banks Analyzed</div>
+                        </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Accuracy Rate</div>
+                    </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">AI Support</div>
+                    </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Free Access</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Transform Your Financial Life?</h2>
+            <p class="cta-text">Join thousands of users who are already taking control of their finances with AI-powered insights and personalized recommendations.</p>
+            <a href="/chatbot" class="cta-btn">Start Your Journey Today</a>
+        </div>
+    </section>
+
+ 
+    <footer class="footer">
+        <p>© 2025 Finance Hub | Empowering Financial Knowledge</p>
+    </footer>
+</body>
+</html> -->
+
+
+
+
+You're right. I apologize for the fragmented responses. Here is the complete, single HTML file with all the code, including the corrected card layout, that you can use for your project.
+
+This code combines the modern hero section, the properly aligned and responsive card grid for services and features, and the professional navigation and footer into one complete file.
+
+-----
+
+### Complete HTML File with All CSS
+
+Just copy and paste this entire code into your HTML file. It includes all the necessary HTML and CSS to create the final, polished web page.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Hub - Your Financial Future Starts Here</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <style>
+        /* Modern Full-Screen Design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #f8fafc;
+        }
+        
+        /* ------------------- Navigation Bar ------------------- */
+        .navbar {
+            background-color: rgba(27, 38, 59, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .navbar .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: #00c6ff;
+            transform: translateY(-2px);
+        }
+
+        /* ------------------- Hero Section ------------------- */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #2a4d69 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px; /* To prevent content from being hidden by fixed navbar */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%2300c6ff" stop-opacity="0.1"/><stop offset="100%" stop-color="%2300c6ff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 198, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 198, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* ------------------- Section Styling ------------------- */
+        .services-section, .features-section, .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .services-section { background: #f8fafc; }
+        .features-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .features-section .section-title {
+            -webkit-text-fill-color: white;
+            background: none;
+        }
+        
+        .cta-section .section-title {
+            -webkit-text-fill-color: white;
+            background: none;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .features-section .section-subtitle,
+        .cta-section .section-subtitle {
+            color: #cbd5e1;
+        }
+        
+        /* ------------------- Services Grid - Clean Grid Layout ------------------- */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            gap: clamp(1.5rem, 3vw, 3rem);
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            align-items: stretch;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: clamp(2rem, 2vw, 3rem) 2rem;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            width: 300px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+        }
+
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: block;
+            line-height: 1;
+            filter: drop-shadow(0 4px 8px rgba(0, 198, 255, 0.2));
+        }
+
+        .service-card h3 { font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.9rem; line-height: 1.25; }
+        .service-card p { color: #475569; line-height: 1.7; margin-bottom: 2rem; font-size: 1.02rem; flex-grow: 1; }
+        .service-card .service-icon, .service-card h3 { flex-shrink: 0; }
+        .service-card .service-link { align-self: center; margin-top: auto; }
+
+        .service-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 198, 255, 0.3);
+            margin-top: auto;
+        }
+
+        .service-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 198, 255, 0.4);
+            background: linear-gradient(135deg, #0072ff, #005bb3);
+        }
+
+        /* ------------------- Features Section - Clean Grid Layout ------------------- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1.5rem, 3vw, 3rem);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            align-items: stretch;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            height: auto;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: #00c6ff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-item p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* ------------------- Stats Section ------------------- */
+        .stats-section {
+            padding: 4rem 0;
+            background: #0d1b2a;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00c6ff;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label { color: #cbd5e1; font-size: 1.1rem; }
+
+        /* ------------------- CTA Section ------------------- */
+        .cta-content { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .cta-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem; }
+        .cta-text { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+
+        .cta-btn {
+            background: white;
+            color: #0072ff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ------------------- Footer ------------------- */
+        .footer {
+            background-color: #0d1b2a;
+            color: #cbd5e1;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* ------------------- Responsive Design ------------------- */
+        @media (max-width: 1280px) {
+            .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .nav-links { display: none; }
+            .navbar .container { justify-content: center; }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .services-section, .features-section, .cta-section { padding: 4rem 0; }
+            .section-header { margin-bottom: 3rem; padding: 0 1rem; }
+            .services-grid, .features-grid, .stats-grid { 
+                grid-template-columns: 1fr; 
+                padding: 0 1rem; 
+                gap: 2rem; 
+            }
+            .service-card { width: 90%; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-btn { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .services-section, .features-section, .cta-section { padding: 3rem 0; }
+            .section-title { font-size: 2rem; }
+            .section-subtitle { font-size: 1.1rem; }
+            .service-card { padding: 2rem 1rem; }
+            .service-icon { font-size: 3rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Finance Hub</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/bank-analysis">Bank Analysis</a></li>
+                <li><a href="/smart-budget">Smart Budget</a></li>
+                <li><a href="/chatbot">Chatbot</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Financial Future Starts Here</h1>
+            <p>
+                Transform your financial life with AI-powered insights, real-time market analysis, and personalized budgeting strategies. 
+                Take control of your money and build wealth with confidence.
+            </p>
+            <div class="hero-buttons">
+                <a href="/chatbot" class="btn-primary">💬 Start Your Financial Journey</a>
+                <a href="/smart-budget" class="btn-secondary">🤖 AI Budget Planner</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="section-header">
+            <h2 class="section-title">🚀 Advanced Financial Services</h2>
+            <p class="section-subtitle">Everything you need to master your finances in one powerful platform</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🏦</span>
+                <h3>Bank Health Analysis</h3>
+                <p>Comprehensive analysis of Indian banking sector performance with early warning indicators and individual bank health scores.</p>
+                <a href="/bank-analysis" class="service-link">Explore Analysis</a>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">🤖</span>
+                <h3>AI Smart Budget Planner</h3>
+                <p>Get personalized budget recommendations, financial health scores, and AI-powered savings strategies tailored to your goals.</p>
+                <a href="/smart-budget" class="service-link">Create Budget</a>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">📊</span>
+                <h3>Real-time Stock Data</h3>
+                <p>Live stock prices for US and Indian markets with comprehensive market analysis and trend predictions.</p>
+                <a href="/stocknews" class="service-link">View Markets</a>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">💬</span>
+                <h3>AI Financial Advisor</h3>
+                <p>Get instant financial advice, investment guidance, and personalized recommendations from our advanced AI chatbot.</p>
+                <a href="/chatbot" class="service-link">Chat Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="section-header">
+            <h2 class="section-title">🎯 Why Choose Finance Hub?</h2>
+            <p class="section-subtitle">Cutting-edge features designed to revolutionize your financial management</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🏦</div>
+                <h3>Banking Sector Analysis</h3>
+                <p>Monitor Indian banking sector health, analyze NPL ratios, capital adequacy, and get early warning indicators for potential banking stress.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Budgeting</h3>
+                <p>Intelligent budget structuring based on your income, expenses, and financial goals with personalized recommendations.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">📈</div>
+                <h3>Financial Health Scoring</h3>
+                <p>Get your personal financial health score and actionable recommendations to improve your financial well-being.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🏆</div>
+                <h3>Savings Challenges</h3>
+                <p>Participate in gamified savings challenges like 52-week challenge, no-spend month, and round-up savings.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your financial data is protected with bank-level security and privacy measures. Your information stays confidential.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Always Accessible</h3>
+                <p>Access your financial insights anytime, anywhere. Our platform works seamlessly across all devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Banks Analyzed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Accuracy Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">AI Support</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Free Access</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Transform Your Financial Life?</h2>
+            <p class="cta-text">Join thousands of users who are already taking control of their finances with AI-powered insights and personalized recommendations.</p>
+            <a href="/chatbot" class="cta-btn">Start Your Journey Today</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Finance Hub | Empowering Financial Knowledge</p>
+    </footer>
+</body>
+</html>
+```

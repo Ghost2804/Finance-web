@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/finance_style.css') }}">
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- Home Button -->
+        <div class="navbar">
+            <a href="/" class="home-btn">🏠 Home</a>
+        </div>
+    </div>
+    
+    <h1>Finance Calculator</h1>
+
+    <div class="container">
+        <!-- Loan EMI Calculator -->
+        <div class="calculator">
+            <h2>Loan EMI Calculator</h2>
+            <label>Loan Amount (₹):</label>
+            <input type="number" id="loanAmount" placeholder="Enter Loan Amount">
+            
+            <label>Interest Rate (% per year):</label>
+            <input type="number" id="interestRate" placeholder="Enter Interest Rate">
+
+            <label>Loan Tenure (Years):</label>
+            <input type="number" id="loanTenure" placeholder="Enter Loan Tenure">
+
+            <button onclick="calculateEMI()">Calculate EMI</button>
+            <p>Monthly EMI: ₹<span id="emiResult">0</span></p>
+        </div>
+
+        <!-- Investment Calculator -->
+        <div class="calculator">
+            <h2>Investment Calculator</h2>
+            <label>Investment Amount (₹):</label>
+            <input type="number" id="investAmount" placeholder="Enter Investment Amount">
+
+            <label>Annual Interest Rate (%):</label>
+            <input type="number" id="investRate" placeholder="Enter Interest Rate">
+
+            <label>Investment Duration (Years):</label>
+            <input type="number" id="investYears" placeholder="Enter Years">
+
+            <button onclick="calculateInvestment()">Calculate Returns</button>
+            <p>Future Value: ₹<span id="investResult">0</span></p>
+        </div>
+
+        <!-- Budget Planner -->
+        <div class="calculator">
+            <h2>Budget Planner</h2>
+            <label>Income (₹):</label>
+            <input type="number" id="income" placeholder="Enter Monthly Income">
+
+            <label>Expenses (₹):</label>
+            <input type="number" id="expenses" placeholder="Enter Monthly Expenses">
+
+            <button onclick="calculateBudget()">Check Savings</button>
+            <p>Monthly Savings: ₹<span id="budgetResult">0</span></p>
+        </div>
+
+        <!-- Retirement Savings Estimator -->
+        <div class="calculator">
+            <h2>Retirement Savings Estimator</h2>
+            <label>Current Age:</label>
+            <input type="number" id="currentAge" placeholder="Enter Your Age">
+
+            <label>Retirement Age:</label>
+            <input type="number" id="retirementAge" placeholder="Enter Retirement Age">
+
+            <label>Monthly Savings (₹):</label>
+            <input type="number" id="monthlySavings" placeholder="Enter Savings">
+
+            <label>Annual Interest Rate (%):</label>
+            <input type="number" id="retireRate" placeholder="Enter Interest Rate">
+
+            <button onclick="calculateRetirement()">Estimate Savings</button>
+            <p>Retirement Savings: ₹<span id="retireResult">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Loan EMI Calculator
+        function calculateEMI() {
+            let loanAmount = document.getElementById("loanAmount").value;
+            let interestRate = document.getElementById("interestRate").value / 100 / 12;
+            let loanTenure = document.getElementById("loanTenure").value * 12;
+
+            let emi = (loanAmount * interestRate * Math.pow(1 + interestRate, loanTenure)) / 
+                    (Math.pow(1 + interestRate, loanTenure) - 1);
+
+            document.getElementById("emiResult").innerText = emi.toFixed(2);
+        }
+
+        // Investment Calculator (Compound Interest)
+        function calculateInvestment() {
+            let investAmount = document.getElementById("investAmount").value;
+            let investRate = document.getElementById("investRate").value / 100;
+            let investYears = document.getElementById("investYears").value;
+
+            let futureValue = investAmount * Math.pow(1 + investRate, investYears);
+            document.getElementById("investResult").innerText = futureValue.toFixed(2);
+        }
+
+        // Budget Planner
+        function calculateBudget() {
+            let income = document.getElementById("income").value;
+            let expenses = document.getElementById("expenses").value;
+
+            let savings = income - expenses;
+            document.getElementById("budgetResult").innerText = savings;
+        }
+
+        // Retirement Savings Estimator
+        function calculateRetirement() {
+            let currentAge = document.getElementById("currentAge").value;
+            let retirementAge = document.getElementById("retirementAge").value;
+            let monthlySavings = document.getElementById("monthlySavings").value;
+            let retireRate = document.getElementById("retireRate").value / 100 / 12;
+
+            let monthsLeft = (retirementAge - currentAge) * 12;
+            let retirementSavings = monthlySavings * ((Math.pow(1 + retireRate, monthsLeft) - 1) / retireRate);
+
+            document.getElementById("retireResult").innerText = retirementSavings.toFixed(2);
+        }
+
+    </script>
+
+</body>
+</html>

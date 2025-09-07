@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #0d1b2a;
+    color: white;
+    /* Prevent content from hiding under fixed navbar */
+    padding-top: 70px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: rgba(27, 38, 59, 0.9);
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00c6ff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links a:hover {
+    color: #00a8e8;
+    transform: scale(1.05);
+}
+
+.nav-links a.active {
+    border-bottom: 2px solid #00c6ff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Background Overlay */
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 27, 42, 0.7);
+    z-index: 0;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    text-align: center;
+    padding: 30px;
+    background: rgba(27, 38, 59, 0.8);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: #00c6ff;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #dce4ec;
+    margin-bottom: 20px;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #0072ff, #005bb3);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: #00a8e8;
+}
+
+.btn-secondary:hover {
+    background: #008dc9;
+}
+
+/* Finance Sections */
+.finance-info {
+    padding: 50px 20px;
+    background: #1b263b;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: -30px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #00c6ff;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: #1e3c72;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 15px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+
+.service-card h2 {
+    color: #00c6ff;
+}
+
+.card-link {
+    text-decoration: none;
+    color: white;
+}
+
+.card-link:hover h2 {
+    color: #00a8e8;
+}
+
+/* Call to Action */
+.cta {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+.cta h2 {
+    font-size: 2rem;
+}
+
+.cta p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+    background: #1b263b;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Readability fixes on light surfaces */
+/* Any white/light cards or sections should use dark text for contrast */
+.feature-item,
+.showcase-card,
+.budget-form,
+.budget-results,
+.recommendations,
+.bank-card,
+.challenge-card,
+.recommendation-item,
+.warning-item,
+.warning-section,
+.budget-category {
+    color: #2c3e50;
+}
+
+/* Subtitles and muted text on dark backgrounds */
+.subtitle {
+    color: #dce4ec;
+}
+
+/* Links inside light cards */
+.showcase-card a,
+.budget-form a,
+.budget-results a,
+.bank-card a,
+.challenge-card a,
+.recommendation-item a {
+    color: #3498db;
+}
+
+/* Ensure lists in light cards are readable */
+.showcase-card li,
+.budget-results li,
+.recommendation-item li {
+    color: #2c3e50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .services {
+        flex-direction: column;
+    }
+
+    .service-card {
+        width: 90%;
+    }
+}

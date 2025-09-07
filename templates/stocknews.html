@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stock.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Home Button -->
+        <div class="navbar">
+            <a href="/" class="home-btn">🏠 Home</a>
+        </div>
+
+
+    <div class="container">
+        <h1>📈 Live Stock Market Data</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock</th>
+                    <th>Price (USD)</th>
+                    <th>Change (USD)</th>
+                    <th>Change (%)</th>
+                </tr>
+            </thead>
+            <tbody id="stock-table">
+                {% for stock, data in stock_data.items() %}
+                <tr>
+                    <td>{{ data.name }}</td>
+                    <td>${{ "%.2f"|format(data.price) }}</td>
+                    <td class="{% if data.change >= 0 %}green{% else %}red{% endif %}">
+                        {{ "%.2f"|format(data.change) }}
+                    </td>
+                    <td class="{% if data.change >= 0 %}green{% else %}red{% endif %}">
+                        {{ "%.2f"|format(data.change_percent) }}%
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='java_script/script2.js') }}"></script>
+</body>
+</html>
