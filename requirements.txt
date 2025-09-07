@@ -1,0 +1,19 @@
+# Web Framework
+Flask==2.3.3
+Flask-CORS==4.0.0
+
+# Environment and Configuration
+python-dotenv==1.0.0
+
+# AI and Data Processing
+google-generativeai==0.3.2
+yfinance==0.2.18
+
+# Development and Testing (optional)
+pytest==7.4.2
+pytest-flask==1.2.0
+
+# Code Quality
+black==23.9.1
+flake8==6.1.0
+mypy==1.5.1
